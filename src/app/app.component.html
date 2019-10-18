@@ -1,0 +1,12 @@
+ <ag-grid-angular
+    #agGrid 
+    style="width: 100%; height: 500px;" 
+    class="ag-theme-balham"
+    [gridOptions]="gridOptions"
+    [rowData]="data" 
+    [columnDefs]="columns"
+    [sideBar]="true"
+    [pagination]="true"
+    (gridReady)="onGridReady($event)"
+    >
+</ag-grid-angular>
