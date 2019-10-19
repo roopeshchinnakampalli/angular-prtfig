@@ -27,7 +27,7 @@ export class AppComponent  {
 
   onGridReady(params: any) {
     this.gridApi = params.api;
-  ////  this.gridApi.sizeColumnsToFit();
+  ////// this.gridApi.sizeColumnsToFit();
   }
 
   onColumnResized() {
