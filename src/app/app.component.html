@@ -1,9 +1,20 @@
  <ag-grid-angular
     #agGrid 
-    style="width: 100%; height: 500px;" 
+    style="width: 100%;" domLayout='autoHeight'
+    [enableSorting]="true" 
+    [rowDragManaged]="true" 
+    [animateRows]="true"
+    [paginationPageSize]="paginationPageSize"
     class="ag-theme-balham"
     [gridOptions]="gridOptions"
+    [groupDefaultExpanded]="groupDefaultExpanded"
+    [suppressDragLeaveHidesColumns]="true"
+    [rowGroupPanelShow]="rowGroupPanelShow"
     [rowData]="data" 
+    [groupUseEntireRow]="true"
+    (columnResized)="onColumnResized($event)"
+    [defaultColDef]="defaultColDef"
+    [suppressMakeColumnVisibleAfterUnGroup]="true"
     [columnDefs]="columns"
     [sideBar]="true"
     [pagination]="true"

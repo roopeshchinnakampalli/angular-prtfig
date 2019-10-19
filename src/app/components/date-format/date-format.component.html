@@ -1,0 +1,6 @@
+<span *ngIf="params?.value;else other_content">
+    {{(params.value) ? (params.value | date:"mediumDate") : '--'}}
+  </span>
+    <ng-template #other_content>
+        <span>--</span>
+    </ng-template>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GridData } from './data';
-import { columnconfig } from './gridcolumn';
+import { columnconfig, defaultColDef } from './gridcolumn';
 
 
 
@@ -11,10 +11,13 @@ import { columnconfig } from './gridcolumn';
 })
 export class AppComponent  {
   data = GridData;
-  //
-  wrapAll = true;
+  wrapAll = false;
   gridOptions = {};
+  paginationPageSize =20;
+  groupDefaultExpanded = -1;
   columns = columnconfig;
+  rowGroupPanelShow = 'always';
+  gridApi: any;
 
   constructor() {
     this.gridOptions = {
@@ -22,7 +25,14 @@ export class AppComponent  {
     }
   }
 
-  onGridReady(event: any) {
-
+  onGridReady(params: any) {
+    this.gridApi = params.api;
+  //  this.gridApi.sizeColumnsToFit();
   }
+
+  onColumnResized() {
+    this.gridApi.resetRowHeights();
+  }
+
+  
 }

@@ -1,3 +1,17 @@
+import { DateFormatComponent } from './components/date-format/date-format.component';
+import { TagsComponent } from './components/tags/tags.component';
+import { ParentComponent } from './components/parent/parent.component';
+import { CreatedByComponent } from './components/created-by/created-by.component';
+import { TeamComponent } from './components/team/team.component';
+export const defaultColDef = {
+    resizable: true,
+    sortable: true,
+    filter: true,
+    enablePivot: true,
+    animateRows: true,
+    enableRowGroup: true,
+    rowGroupPanelShow: true
+};
 export function applyCellCSSClass(params: any) {
     const wrapAll = params.context.componentParent.wrapAll;
     return wrapAll ? 'cell-wrap-text' : 'cell-nowrap-text';
@@ -147,7 +161,7 @@ export const columnconfig = [
             },
             {
                 headerName: 'Due Date', field: 'scheduledEnd', width: 110, cellClass: 'cell-wrap', enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
-                // cellRendererFramework: DateFormatComponent,
+                cellRendererFramework: DateFormatComponent,
                 filter: 'agDateColumnFilter',
                 chartDataType: 'category',
                 filterParams: {
@@ -161,7 +175,7 @@ export const columnconfig = [
             },
             {
                 headerName: 'Start Date', field: 'scheduledStart', hide: false, type: 'date', width: 110, cellClass: 'cell-wrap', enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
-                // cellRendererFramework: DateFormatComponent,
+                cellRendererFramework: DateFormatComponent,
                 filter: 'agDateColumnFilter',
                 chartDataType: 'category',
                 filterParams: {
@@ -177,8 +191,7 @@ export const columnconfig = [
                 headerName: 'Parent', field: 'project.title', hide: false, width: 110, enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
                 chartDataType: 'category',
                 filter: false,
-                // cellRenderer: getDefaultValue
-                // cellRendererFramework: ParentComponent,
+                cellRendererFramework: ParentComponent,
             },
             {
                 headerName: 'type', hide: false, field: 'typeKey', width: 150, enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
@@ -202,7 +215,7 @@ export const columnconfig = [
             },
             {
                 headerName: 'Tags', field: 'tags', type: 'list', hide: false, width: 80, enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
-                // cellRendererFramework: TagsComponent,
+                cellRendererFramework: TagsComponent,
                 chartDataType: 'category',
                 valueGetter: function (params) {
                     if (params.data && params.data.tags) {
@@ -218,12 +231,12 @@ export const columnconfig = [
             },
             {
                 headerName: 'Created by', field: 'createdBy', hide: false, id: 'createdByUpi', width: 165, enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
-                // cellRendererFramework: CreatedByComponent,
+                cellRendererFramework: CreatedByComponent,
                 chartDataType: 'category'
             },
             {
                 headerName: 'Team', field: 'assignees', hide: false, enableRowGroup: true, sortable: true, toolPanelClass: ['tp-silver'],
-                // cellRendererFramework: TeamComponent,
+                cellRendererFramework: TeamComponent,
                 chartDataType: 'category',
                 valueGetter: function (params) {
                     if (params.data && params.data.assignees) {
@@ -242,7 +255,6 @@ export const columnconfig = [
                 headerName: '',
                 valueGetter: '1',
                 field: 'count',
-                //cellClass: 'text-white',
                 filter: false,
                 cellClass: 'd-none',
                 toolPanelClass: 'd-none',
