@@ -11,8 +11,8 @@ import { columnconfig } from './gridcolumn';
 })
 export class AppComponent  {
   data = GridData;
+  //
   wrapAll = true;
-  ////
   gridOptions = {};
   columns = columnconfig;
 
