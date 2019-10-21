@@ -32,7 +32,7 @@ export class AppComponent  {
     }, 500);
   }
 
-    toggleWrap() {
+  toggleWrap() {
     this.wrapAll = !this.wrapAll;
     if (this.wrapAll) {
       this.gridApi.setDomLayout("autoHeight");

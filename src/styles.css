@@ -2,9 +2,9 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
-.cell-wrap-text {
+.wrapall .cell-wrap-text {
         white-space: normal !important;
-    }
-    .cell-nowrap-text {
-        white-space: nowrap !important;
-    }
+}
+.cell-nowrap-text {
+    white-space: nowrap !important;
+}
