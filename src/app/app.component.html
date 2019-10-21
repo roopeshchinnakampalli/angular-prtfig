@@ -1,6 +1,10 @@
+<input type="checkbox" class="form-check-input" id="wrapchk" (click)="toggleWrap()" [(ngModel)]="wrapAll">
+                <label class="form-check-label font-weight-normal" for="wrapchk">Wrap Text</label>
+                <br/><br/><br/><br/>
+ <div [ngClass]="{'wrapall': wrapAll}"> 
  <ag-grid-angular
-    #agGrid 
-    style="width: 100%;" domLayout='autoHeight'
+ [domLayout]="'normal'" style="height: 850px; width: 100%;" 
+                        id="myGrid"
     [enableSorting]="true" 
     [rowDragManaged]="true" 
     [animateRows]="true"
@@ -21,3 +25,4 @@
     (gridReady)="onGridReady($event)"
     >
 </ag-grid-angular>
+</div>

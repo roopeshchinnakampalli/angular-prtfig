@@ -27,7 +27,24 @@ export class AppComponent  {
 
   onGridReady(params: any) {
     this.gridApi = params.api;
-  ////// this.gridApi.sizeColumnsToFit();
+    setTimeout(() => {
+      this.gridApi.sizeColumnsToFit();
+    }, 500);
+  }
+
+    toggleWrap() {
+    this.wrapAll = !this.wrapAll;
+    if (this.wrapAll) {
+      this.gridApi.setDomLayout("autoHeight");
+      (<HTMLDivElement>document.querySelector("#myGrid")).style.height = "";
+    } else {
+      this.gridApi.setDomLayout("normal");
+      (<HTMLDivElement>document.querySelector("#myGrid")).style.height = "850px";
+    }
+    setTimeout(() => {
+      this.data = [...this.data];
+    }, 100);
+    this.gridApi.resetRowHeights();
   }
 
   onColumnResized() {
